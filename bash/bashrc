@@ -1,0 +1,25 @@
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JRE_HOME=${JAVA_HOME}
+export PATH=/usr/local/bin:/usr/local/sbin:${PATH}:${HOME}/dotfiles/vim/vim/bundle/powerline/scripts
+export MAVEN_OPTS='-Xms512m -Xmx2048m'
+#export MAVEN_OPTS='-Xms512m -Xmx2048m -XX:PermSize=256m -XX:MaxPermSize=768m'
+
+export LSCOLORS='Bxgxfxfxcxdxdxhbadbxbx'
+export LS_OPTIONS='--color=auto'
+export CLICOLOR='Yes'
+export LSCOLORS=''
+export EDITOR=/usr/local/bin/vim
+set -o emacs
+
+# Source stuff that shouldn't be on github :-)
+. ~/.secret_bashrc
+
+source `brew --prefix`/etc/profile.d/z.sh
+source ~/.git-completion.bash
+source ~/.maven-completion.bash
+
+source ~/.bash_prompt.bash
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PATH=$PATH:/Applications/HP_Fortify/HP_Fortify_SCA_and_Apps_4.02/bin

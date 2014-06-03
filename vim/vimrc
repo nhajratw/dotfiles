@@ -1,0 +1,119 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+""" Begin Setup Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" original repos on github
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'Lokaltog/powerline'
+Bundle 'stephenmckinney/vim-solarized-powerline'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'kchmck/vim-coffee-script'
+
+
+" Github repos of the user 'vim-scripts'
+" => can omit the username part
+
+" " non github repos
+"Bundle 'git://git.wincent.com/command-t.git'
+
+""" End Setup Vundle
+
+filetype plugin indent on
+set encoding=utf-8
+
+" Powerline
+set rtp +=~/.vim/bundle/powerline/powerline/bindings/vim
+set noshowmode " Hide default mode text, i.e. INSERT
+
+" https://powerline.readthedocs.org/en/latest/tipstricks.html#fix-terminal-timeout-when-pressing-escape
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
+
+" Make Vim recognize Markdown rather than Modula2
+au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.us set filetype=html
+
+" Make tab completion for files/buffers act like bash
+set wildmode=list:longest
+set wildmenu
+
+" Store temporary files in a central spot
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+set ruler		  " show the cursor position all the time
+set showcmd		" display incomplete commands
+
+" Switch syntax highlighting on
+syntax enable
+
+" solarized
+set background=dark
+colorscheme solarized
+
+" solarized powerline
+let g:Powerline_theme='short'
+let g:Powerline_colorscheme='solarized16_dark'
+
+" Switch on highlighting the last used search pattern.
+set hlsearch   " highlight search
+set hls
+set incsearch  " incremental search
+
+" Allow switching of buffers without saving
+set hidden
+
+
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set laststatus=2    " always show the status bar
+set showmatch
+set visualbell      " no beeping
+set number          " show line numbers
+
+" Expose evil spaces http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Get rid of my bad habits
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+vnoremap <Up> <NOP>
+vnoremap <Down> <NOP>
+vnoremap <Left> <NOP>
+vnoremap <Right> <NOP>
