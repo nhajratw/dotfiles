@@ -1,3 +1,8 @@
+set JAVA_HOME (/usr/libexec/java_home -v 1.8)
+set JRE_HOME $JAVA_HOME
+
+set PATH $HOME/.rvm/bin /usr/local/bin $PATH
+
 # Path to your oh-my-fish.
 set fish_path $HOME/.oh-my-fish
 
