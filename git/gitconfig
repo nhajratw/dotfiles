@@ -2,6 +2,7 @@
   branch = auto
   diff = auto
   status = auto
+	ui = true
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -16,8 +17,8 @@
   changed = green
   untracked = cyan
 [user]
-  name = Nayan Hajratwala
-  email = nayan@chikli.com
+	name = 
+	email = 
 	signingkey = 207AC94C
 [alias]
   st = status
@@ -34,3 +35,10 @@
   bullets = format:* %H %s
 [core]
   autocrlf = input
+	excludesfile = /Users/nayan/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

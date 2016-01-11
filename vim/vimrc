@@ -4,19 +4,18 @@ set nocompatible
 
 """ Begin Setup Vundle
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " original repos on github
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/powerline'
-Bundle 'stephenmckinney/vim-solarized-powerline'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'kchmck/vim-coffee-script'
-
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/powerline'
+Plugin 'stephenmckinney/vim-solarized-powerline'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'ekalinin/Dockerfile.vim'
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
@@ -27,6 +26,8 @@ Bundle 'kchmck/vim-coffee-script'
 """ End Setup Vundle
 
 filetype plugin indent on
+call vundle#end()
+
 set encoding=utf-8
 
 " Powerline

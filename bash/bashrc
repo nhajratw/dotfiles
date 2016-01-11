@@ -1,8 +1,10 @@
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export JRE_HOME=${JAVA_HOME}
-export PATH=/usr/local/bin:/usr/local/sbin:${PATH}:${HOME}/dotfiles/vim/vim/bundle/powerline/scripts:/Applications/HP_Fortify/HP_Fortify_SCA_and_Apps_4.02/bin
-export MAVEN_OPTS='-Xms512m -Xmx2048m'
-#export MAVEN_OPTS='-Xms512m -Xmx2048m -XX:PermSize=256m -XX:MaxPermSize=768m'
+export DSE_HOME=${HOME}/dse
+
+#export PATH=${DSE_HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}:${HOME}/dotfiles/vim/vim/bundle/powerline/scripts
+export PATH=${DSE_HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}
+export MAVEN_OPTS='-Xms512m -Xmx2048m -Djava.awt.headless=true'
 
 export LSCOLORS='Bxgxfxfxcxdxdxhbadbxbx'
 export LS_OPTIONS='--color=auto'
@@ -16,6 +18,14 @@ set -o emacs
 
 source ~/.git-completion.bash
 source ~/.maven-completion.bash
+complete -C aws_completer aws
 
 source ~/.bash_prompt.bash
 
+tstart () {
+  cd ~/Documents/workspace/Treasury/top-ng
+  ./commands/add_my_ip_to_security_group.sh
+  git up
+}
+
+alias bu="brew update && brew doctor && brew upgrade"
