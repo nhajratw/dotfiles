@@ -2,7 +2,6 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export JRE_HOME=${JAVA_HOME}
 export DSE_HOME=${HOME}/dse
 
-#export PATH=${DSE_HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}:${HOME}/dotfiles/vim/vim/bundle/powerline/scripts
 export PATH=${DSE_HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}
 export MAVEN_OPTS='-Xms512m -Xmx2048m -Djava.awt.headless=true'
 
