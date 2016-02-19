@@ -1,4 +1,4 @@
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export JRE_HOME=${JAVA_HOME}
 export DSE_HOME=${HOME}/dse
 
@@ -15,11 +15,11 @@ set -o emacs
 # Source stuff that shouldn't be on github :-)
 . ~/.secret_bashrc
 
-source ~/.git-completion.bash
-source ~/.maven-completion.bash
+source ~/dotfiles/git/git-completion.bash
+source ~/dotfiles/maven/maven-completion.bash
 complete -C aws_completer aws
 
-source ~/.bash_prompt.bash
+source ~/dotfiles/bash/bash_prompt.bash
 
 tstart () {
   cd ~/Documents/workspace/Treasury/top-ng
@@ -28,3 +28,8 @@ tstart () {
 }
 
 alias bu="brew update && brew doctor && brew upgrade"
+alias vi=gvim
+alias vim=gvim
+
+alias vpnon="scutil --nc start ElementVPN --secret 3bmshtr"
+alias vpnoff="scutil --nc stop ElementVPN"

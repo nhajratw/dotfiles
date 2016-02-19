@@ -12,8 +12,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 " original repos on github
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'powerline/powerline'
-Plugin 'stephenmckinney/vim-solarized-powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
 Plugin 'derekwyatt/vim-scala'
 Plugin 'ekalinin/Dockerfile.vim'
 
@@ -30,19 +33,7 @@ call vundle#end()
 
 set encoding=utf-8
 
-" Powerline
-set rtp +=~/.vim/bundle/powerline/powerline/bindings/vim
 set noshowmode " Hide default mode text, i.e. INSERT
-
-" https://powerline.readthedocs.org/en/latest/tipstricks.html#fix-terminal-timeout-when-pressing-escape
-if ! has('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
-endif
 
 " Make Vim recognize Markdown rather than Modula2
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -65,10 +56,6 @@ syntax enable
 " solarized
 set background=dark
 colorscheme solarized
-
-" solarized powerline
-let g:Powerline_theme='short'
-let g:Powerline_colorscheme='solarized16_dark'
 
 " Switch on highlighting the last used search pattern.
 set hlsearch   " highlight search

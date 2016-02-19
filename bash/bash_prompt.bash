@@ -31,14 +31,14 @@ function parse_git_branch {
   remote_pattern="Your branch is (.*) of"
   diverge_pattern="Your branch and (.*) have diverged"
   if [[ ! ${git_status} =~ "working directory clean" ]]; then
-    state="${RED}⚡ "
+    state="${RED}⚡️ "
   fi
   # add an else if or two here if you want to get more specific
   if [[ ${git_status} =~ ${remote_pattern} ]]; then
     if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-      remote="${YELLOW}↑"
+      remote="${YELLOW}👆"
     else
-      remote="${YELLOW}↓"
+      remote="${YELLOW}👇"
     fi
   fi
   if [[ ${git_status} =~ ${diverge_pattern} ]]; then
