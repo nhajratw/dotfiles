@@ -1,4 +1,4 @@
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export JRE_HOME=${JAVA_HOME}
 export DSE_HOME=${HOME}/dse
 
@@ -28,8 +28,6 @@ tstart () {
 }
 
 alias bu="brew update && brew doctor && brew upgrade"
-alias vi=gvim
-alias vim=gvim
 
 alias vpnon="scutil --nc start ElementVPN --secret 3bmshtr"
 alias vpnoff="scutil --nc stop ElementVPN"
