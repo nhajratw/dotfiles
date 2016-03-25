@@ -10,6 +10,7 @@ export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=''
 export EDITOR=/usr/local/bin/vim
+export HISTCONTROL=ignoredups
 set -o emacs
 
 # Source stuff that shouldn't be on github :-)
@@ -19,7 +20,7 @@ source ~/dotfiles/git/git-completion.bash
 source ~/dotfiles/maven/maven-completion.bash
 complete -C aws_completer aws
 
-source ~/dotfiles/bash/bash_prompt.bash
+source ~/.shell_prompt.sh
 
 tstart () {
   cd ~/Documents/workspace/Treasury/top-ng
