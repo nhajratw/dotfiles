@@ -1,2 +1,2 @@
 set guifont=InputMonoNarrow:h18
-autocmd VimLeave * :!open -a iTerm
+#autocmd VimLeave * :!open -a iTerm
