@@ -16,9 +16,11 @@ set -o emacs
 # Source stuff that shouldn't be on github :-)
 . ~/.secret_bashrc
 
-source ~/dotfiles/maven/maven-completion.bash
-source /usr/local/etc/bash_completion.d/git-completion.bash
 complete -C aws_completer aws
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 source ~/.shell_prompt.sh
 
