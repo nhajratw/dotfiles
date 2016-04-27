@@ -16,8 +16,8 @@ set -o emacs
 # Source stuff that shouldn't be on github :-)
 . ~/.secret_bashrc
 
-source ~/dotfiles/git/git-completion.bash
 source ~/dotfiles/maven/maven-completion.bash
+source /usr/local/etc/bash_completion.d/git-completion.bash
 complete -C aws_completer aws
 
 source ~/.shell_prompt.sh
